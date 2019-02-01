@@ -1,0 +1,87 @@
+void setup(){
+size(400,500);
+background(255);
+}
+
+void draw(){
+  color rojo  = color(176,26,28);   
+  color azul  = color(39,90,166);
+  color amarillo  = color(246,202,25);
+  //variables del triangulo//
+  float tv1A = 50;
+  float tv1B = 153.5;
+  float tv2A = 100;
+  float tv2B = 181;
+  float tv3A = 50;
+  float tv3B = 212;
+ 
+  strokeJoin(ROUND);
+ 
+ if (mousePressed){
+  if (mouseButton == LEFT){
+  amarillo = azul;
+  azul = rojo;
+  }
+  else if (mouseButton == RIGHT){
+  rojo = amarillo;
+  azul = amarillo;
+  }
+   else if (mouseButton == CENTER){
+  rojo = azul;
+  amarillo = azul;
+  }
+}
+
+  
+noFill();
+strokeWeight(4);
+//cubo exterior
+quad(0,125,206.25,15.625,400,125,193.75,234.375);
+quad(0,375,206.25,265.625,400,375,193.75,484.375);
+line(0,125,0,375);
+line(400,125,400,375);
+line(206.25,15.625,206.25,265.625);
+line(193.75,234.375, 193.75,484.375);
+//Línea diagonal
+line(156,46.875,350,152);
+
+//linea derecha
+line(368,109.375,368,353);
+
+
+//cubo grande
+fill(rojo);
+quad(100,125,256.25,42,400,125,243.75,209.5);
+quad(100,125,243.75,209.5,243.75,401,100,316.5);
+quad(243.75,209.5,400,125,400,316.5,243.75,401);
+
+//cubo mediano
+fill(azul);
+quad(0,316.5,50,288,100,316.5,50,345);
+quad(0,316.5,50,345,50,403.5,0,375);
+quad(50,345,100,316.5,100,375,50,403.5);
+
+
+//cuadrado magico
+noFill();
+quad(0,125,50,153.5,50,212,0,183.5);
+//triangulooooo
+triangle(tv1A,tv1B, tv2A,tv2B,tv3A,tv3B);
+
+//regtangulo magico pequeño
+fill(amarillo);
+quad(181.5,227,210,212,220,220,193.75,234.375);
+line(181.5,227,230,201);
+
+//arreglo de cubo
+noFill();
+quad(0,125,206.25,15.625,400,125,193.75,234.375);
+line(193.75,234.375, 193.75,484.375);
+
+
+//cubo pequeño
+fill(amarillo);
+quad(368,347,386,337,384,382,368,371);
+quad(386,337,400,347,400,375,384,382);
+quad(368,347,386,337,400,347,384,356);
+}
